@@ -1,0 +1,20 @@
+main {
+  flex: 1;
+  width: 100%;
+}
+
+main ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* for 2 collumns with the same size */
+  gap: 20px; /* is like a margin all over */
+  list-style: none; /* take the initial ball out */
+}
+
+.errorMessage {
+  margin-bottom: 5px !important;
+}
+@media (max-width: 650px) {
+  main ul {
+    grid-template-columns: 1fr;
+  }
+}

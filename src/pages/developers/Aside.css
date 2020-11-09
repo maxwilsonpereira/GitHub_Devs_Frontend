@@ -1,0 +1,154 @@
+.navigation {
+  width: 100%;
+  margin: auto;
+  border: 0;
+  background-color: #3b4d8f;
+  padding: 5px 40px;
+  font-size: 16px;
+  color: #fff;
+}
+.maxWidth {
+  text-align: right;
+  margin: auto;
+  max-width: 1000px;
+}
+.maxWidth p {
+  display: inline-block;
+  padding: 0 0 0 20px;
+  transition: 0.3s;
+}
+.maxWidth p:hover {
+  cursor: pointer;
+  color: #fff;
+  text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.8);
+}
+.spinerContainer {
+  font-size: 11px;
+}
+.errorMessage {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 0;
+  padding: 0;
+  font-size: 20px;
+  font-weight: normal;
+  color: darkred;
+}
+.errorMessageNoEraseDiv {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 60px;
+  padding: 0;
+  font-size: 20px;
+  font-weight: normal;
+  color: darkred;
+}
+.titleMain {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 4vw;
+  font-weight: 100;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+}
+@media (max-width: 800px) {
+  .titleMain {
+    padding: 0 20px;
+    font-size: 5vw;
+  }
+}
+@media (min-width: 1000px) {
+  .titleMain {
+    font-size: 40px;
+  }
+}
+.btnLogout {
+  width: 100%;
+  border: 0;
+  /* margin-top: 10px; */
+  background-color: #3b4d8f;
+  border-radius: 2px;
+  padding: 5px 20px;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.btnLogout:hover {
+  background-color: #2d3b6e;
+}
+.topDiv {
+  max-width: 800px;
+}
+aside {
+  width: 320px;
+  background: #ffffff;
+  box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+@media (max-width: 700px) {
+  aside {
+    padding: 10px 10px;
+  }
+}
+aside strong {
+  font-size: 20px;
+  text-align: center;
+  display: block;
+  color: #333;
+}
+
+aside form {
+  margin-top: 10px;
+}
+
+/* .input-block + .input-block will affect just the .input-block that
+has another .input-block before it */
+aside form .input-block + .input-block {
+  margin-top: 5px;
+}
+
+aside form .input-group {
+  margin-top: 5px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* next will affect all .input-block INSIDE a .input-group */
+aside form .input-group .input-block {
+  margin-top: 0;
+}
+
+aside form .input-block label {
+  color: #acacac;
+  font-size: 14px;
+  font-weight: bold;
+  display: block;
+}
+
+aside form .input-block input {
+  width: 100%;
+  /* height: 25px; */
+  font-size: 14px;
+  color: rgb(104, 104, 104);
+  border: 0;
+  border-bottom: 1px solid #eee;
+}
+
+aside form button[type="submit"] {
+  width: 100%;
+  border: 0;
+  margin-top: 10px;
+  background-color: #8097eb;
+  border-radius: 2px;
+  padding: 10px 20px; /* 15px top-bottom, 20px right-left */
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+aside form button[type="submit"]:hover {
+  background-color: #4668e4;
+}

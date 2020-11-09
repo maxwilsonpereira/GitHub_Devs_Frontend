@@ -1,0 +1,133 @@
+.backdrop {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.editFormContainer {
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/* MOBILE: */
+@media (max-width: 600px) {
+  .editFormContainer {
+    width: 90%;
+  }
+}
+.editFormContainer aside {
+  background-color: rgb(240, 240, 240);
+}
+.editFormContainer aside form label {
+  color: rgb(90, 90, 90);
+}
+.developersName {
+  font-weight: bold;
+  color: rgb(90, 90, 90);
+}
+.spinerContainer {
+  font-size: 11px;
+}
+.buttons-grid {
+  display: grid;
+  grid-template-columns: 35% 60%;
+  /* box-sizing: border-box; */
+  justify-content: space-between;
+}
+.btnSave {
+  border-radius: 3px !important;
+  padding: 6px !important;
+  background-color: rgb(16, 146, 96) !important;
+}
+.btnSave:hover {
+  background-color: rgb(11, 110, 72) !important;
+}
+.btnCancel {
+  padding: 6px !important;
+  border-radius: 3px !important;
+  background-color: rgb(122, 17, 17) !important;
+}
+.btnCancel:hover {
+  background-color: rgb(78, 10, 10) !important;
+}
+.pBigger {
+  font-weight: bold !important;
+  color: rgb(90, 90, 90) !important;
+}
+li.dev-item {
+  position: relative;
+  background: #ffffff;
+  border-radius: 5px;
+  padding: 15px;
+  box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.7);
+}
+li.dev-item header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+li.dev-item header img {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+}
+
+li.dev-item header .user-info {
+  margin-left: 10px;
+}
+
+.user-info strong {
+  display: block;
+  font-size: 16px;
+  color: #333;
+}
+
+.user-info span {
+  font-size: 13px;
+  color: rgb(50, 50, 50);
+  margin-top: 2px;
+}
+
+li.dev-item p {
+  color: rgb(50, 50, 50);
+  font-size: 14px;
+  line-height: 20px;
+  margin: 10px 0; /* 10px top-bottom, 0px right-left */
+}
+
+li.dev-item a {
+  color: #252fb3;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+li.dev-item a:hover {
+  font-weight: bold;
+}
+
+.iconTrash {
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+  transition: 0.3s;
+}
+.iconTrash:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.iconEdit {
+  position: absolute;
+  right: 30px;
+  bottom: 5px;
+  transition: 0.3s;
+}
+.iconEdit:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}

@@ -1,0 +1,215 @@
+$btnsPadding: 5px !important;
+.container {
+  /* position: relative; */
+  padding: 40px 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    #bebebe,
+    #f3f3f3 25%,
+    #f3f3f3 64%,
+    #bebebe
+  );
+}
+.imgBox {
+  text-align: center;
+}
+.gitLogoImg {
+  margin: 20px 0;
+  width: 50vw;
+  max-width: 150px;
+}
+.gitLogoSignupImg {
+  margin: 15px 0;
+  width: 50vw;
+  max-width: 100px;
+}
+.logSignClick {
+  cursor: pointer;
+  font-weight: 600;
+  color: #0095f6;
+}
+.forgotPassClick {
+  cursor: pointer;
+  color: #818181;
+}
+.formBox {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+  /* margin-top: 30px; */
+  background: #ffffff;
+  box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+/* MOBILE: */
+@media (max-width: 600px) {
+  .formBox {
+    width: 90%;
+  }
+}
+.btnsGrid {
+  display: grid;
+  margin-bottom: 8px;
+  grid-template-columns: 48% 48%;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+.btnsGridForm {
+  display: grid;
+  grid-template-columns: 48% 48%;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+@media (min-width: 1000px) {
+  .btnsGridForm {
+    display: inline;
+  }
+}
+
+.facebookBtn {
+  text-align: center;
+  width: 100%;
+  border: 0;
+  padding: $btnsPadding;
+  margin-top: 10px;
+  background-color: #1e3485;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.facebookBtn:hover {
+  background-color: #12225d;
+}
+.btnLogin {
+  text-align: center;
+  width: 100%;
+  border: 0;
+  padding: $btnsPadding;
+  margin-top: 10px;
+  color: white;
+  background-color: #8097eb;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.btnLogin:hover {
+  background-color: #667dcf;
+}
+.btnCoordinates {
+  text-align: center;
+  width: 100%;
+  border: 0;
+  padding: $btnsPadding;
+  margin-top: 10px;
+  background-color: #3b4d8f;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.btnCoordinates:hover {
+  background-color: #12225d;
+}
+.btnSignup {
+  text-align: center;
+  width: 100%;
+  border: 0;
+  padding: $btnsPadding;
+  margin-top: 10px;
+  color: white;
+  background-color: rgb(16, 146, 96) !important;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.btnSignup:hover {
+  background-color: rgb(11, 110, 72) !important;
+}
+.btnText {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 16px;
+  color: #fff;
+  transition: 0.2s;
+}
+.facebookImg {
+  display: inline-block;
+  width: 35px;
+}
+.spinerContainer {
+  /* making the spinner thinner: */
+  font-size: 11px;
+}
+.facebookLoginBox:hover .btnText {
+  text-shadow: 0.5px 0.5px 0.5px rgb(53, 53, 156);
+}
+.formBox strong {
+  font-size: 20px;
+  text-align: center;
+  display: block;
+  color: #333;
+}
+.formBox button {
+  margin-bottom: 5px !important;
+}
+
+.formBox form {
+  margin-top: 10px;
+}
+.formBox form input {
+  padding: 0 10px;
+}
+
+/* .input-block + .input-block will affect just the .input-block that
+  has another .input-block before it */
+.formBox form .input-block + .input-block {
+  margin-top: 5px;
+}
+
+.formBox form .input-group {
+  margin-top: 5px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* next will affect all .input-block INSIDE a .input-group */
+.formBox form .input-group .input-block {
+  margin-top: 0;
+}
+
+.formBox form .input-block label {
+  color: #acacac;
+  font-size: 14px;
+  font-weight: bold;
+  display: block;
+}
+
+.formBox form .input-block input {
+  width: 100%;
+  height: 25px;
+  font-size: 14px;
+  color: #666;
+  border: 0;
+  border-bottom: 1px solid #eee;
+}
+
+.formBox form button[type="submit"] {
+  width: 100%;
+  border: 0;
+  /* margin-top: 20px; */
+  background-color: #8097eb;
+  border-radius: 2px;
+  padding: 10px 20px; /* 15px top-bottom, 20px right-left */
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.formBox form button[type="submit"]:hover {
+  background-color: #4668e4;
+}

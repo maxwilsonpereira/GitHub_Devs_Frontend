@@ -1,0 +1,28 @@
+.FooterDown {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background-color: #1d274b;
+  padding: 10px 0;
+  color: #ffffff;
+}
+.spanElement {
+  padding: 0 10px;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+.favicon {
+  color: white;
+  transition: 0.3s ease-in-out;
+}
+.favicon:hover {
+  color: #0077b5;
+}
+/* ***** MOBILE ***** */
+@media (max-width: 700px) {
+  .spanElement {
+    font-size: 0.8em;
+  }
+}
