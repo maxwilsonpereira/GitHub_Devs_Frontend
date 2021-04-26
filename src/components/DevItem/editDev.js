@@ -11,6 +11,7 @@ export default function EditDev(props) {
   const [longitude, setLongitude] = useState("");
   const [about, setAbout] = useState("");
   const [messageToUser, setMessageToUser] = useState("");
+  const [spinner, setSpinner] = useState("");
 
   useEffect(() => {
     // FILLING the form with the current data:
@@ -76,6 +77,7 @@ export default function EditDev(props) {
       longitude === props.developer.location.coordinates[0] &&
       about === props.developer.about
     ) {
+      setSpinner("");
       setMessageToUser("No change were made!");
     } else if (
       latitude < -90 ||
@@ -83,6 +85,7 @@ export default function EditDev(props) {
       longitude < -180 ||
       longitude > 180
     ) {
+      setSpinner("");
       setMessageToUser("Wrong coordinates!");
     } else {
       // UPDATING DEVELOPER:
@@ -96,6 +99,7 @@ export default function EditDev(props) {
           about,
         })
         .then((res) => {
+          setSpinner("");
           if (isMounted) {
             setMessageToUser(res.data.message);
             props.refreshDevsHandlers();
@@ -104,18 +108,19 @@ export default function EditDev(props) {
           }
         })
         .catch((err) => {
+          setSpinner("");
           if (err.response) {
             // if (isMounted) {
-            setMessageToUser("err.response.data.message1");
+            setMessageToUser(err.response.data.message);
             // }
           } else if (err.request) {
             // Client never received a response, or request never left:
             // console.log("Connection failed! Please contact us!");
-            setMessageToUser("err.response.data.message2");
+            setMessageToUser(err.response.data.message);
           } else {
             // Anything else:
             // console.log("Please contact us!");
-            setMessageToUser("err.response.data.message3");
+            setMessageToUser(err.response.data.message);
           }
         });
     }
@@ -210,6 +215,7 @@ export default function EditDev(props) {
               </div>
             </div>
             <h2 className="errorMessage">{messageToUser}</h2>
+            <h2 className="errorMessage">{spinner}</h2>
           </form>
         </aside>
       </div>

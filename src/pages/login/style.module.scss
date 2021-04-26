@@ -1,137 +1,161 @@
 $btnsPadding: 5px !important;
 .container {
-  /* position: relative; */
-  padding: 40px 0;
+  padding: 30px 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    #bebebe,
-    #f3f3f3 25%,
-    #f3f3f3 64%,
-    #bebebe
-  );
+  text-align: center;
+}
+.content {
+  max-width: 800px;
+  text-align: center;
+  margin: auto;
+}
+/* MOBILE: */
+@media (max-width: 700px) {
+  .content {
+    width: 90%;
+  }
+}
+.grid {
+  display: grid;
+  margin: auto;
+  margin-top: 5px;
+  align-content: center;
+  max-width: 300px;
+  grid-template-columns: 49% 49%;
+  align-content: space-between;
+  justify-content: space-between;
+}
+.gridDevelopersForm {
+  display: grid;
+  grid-template-columns: 49% 49%;
+  margin-top: 5px;
+  justify-content: space-between;
+}
+.maxWidth {
+  max-width: 300px;
+  margin: auto;
+  text-align: left;
+}
+.setCoordinates {
+  max-width: 300px;
+  text-align: left !important;
+  font-size: 20px;
+  font-style: italic;
+}
+.title {
+  font-size: 60px;
+  margin: 30px 0;
+  color: darkred;
+}
+/* MOBILE: */
+@media (max-width: 700px) {
+  .title {
+    margin: 0;
+    font-size: 38px;
+  }
 }
 .imgBox {
   text-align: center;
 }
 .gitLogoImg {
-  margin: 20px 0;
+  margin: 10px 0;
   width: 50vw;
-  max-width: 150px;
+  max-width: 120px;
 }
 .gitLogoSignupImg {
-  margin: 15px 0;
-  width: 50vw;
-  max-width: 100px;
+  margin: 10px 0;
+  width: 40vw;
+  max-width: 80px;
 }
 .logSignClick {
   cursor: pointer;
   font-weight: 600;
   color: #0095f6;
+  transition: 0.2s ease-in-out;
+}
+.logSignClick:hover {
+  color: #006db6;
 }
 .forgotPassClick {
   cursor: pointer;
   color: #818181;
+  transition: 0.2s ease-in-out;
 }
-.formBox {
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  width: 500px;
-  /* margin-top: 30px; */
-  background: #ffffff;
-  box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.7);
-  border-radius: 5px;
-  padding: 10px 20px;
+.forgotPassClick:hover {
+  color: #4b4b4b;
 }
-/* MOBILE: */
-@media (max-width: 600px) {
-  .formBox {
-    width: 90%;
-  }
-}
-.btnsGrid {
-  display: grid;
-  margin-bottom: 8px;
-  grid-template-columns: 48% 48%;
-  box-sizing: border-box;
-  justify-content: space-between;
-}
-.btnsGridForm {
-  display: grid;
-  grid-template-columns: 48% 48%;
-  box-sizing: border-box;
-  justify-content: space-between;
-}
-@media (min-width: 1000px) {
-  .btnsGridForm {
-    display: inline;
-  }
-}
-
-.facebookBtn {
-  text-align: center;
-  width: 100%;
-  border: 0;
+.btnLogin,
+.facebookBtn,
+.btnCoordinates,
+.btnSignup,
+.btnCoordinatesDevs,
+.btnSignupDevs {
+  margin: 4px 0;
+  border-radius: 5px !important;
   padding: $btnsPadding;
-  margin-top: 10px;
-  background-color: #1e3485;
-  border-radius: 3px;
+  width: 100%;
+  height: 100%;
   cursor: pointer;
+  text-align: center;
+  font-size: 1.2em;
+  border-width: 0px;
+  box-shadow: inset 0px 0px 5px 2px rgb(0, 0, 0);
   transition: 0.5s;
+}
+.facebookBtn {
+  max-width: 300px;
+  background-color: #1e3485;
 }
 .facebookBtn:hover {
   background-color: #12225d;
 }
 .btnLogin {
-  text-align: center;
-  width: 100%;
-  border: 0;
-  padding: $btnsPadding;
-  margin-top: 10px;
-  color: white;
+  max-width: 300px;
+  font-weight: bold;
   background-color: #8097eb;
-  border-radius: 3px;
-  cursor: pointer;
-  transition: 0.5s;
 }
 .btnLogin:hover {
   background-color: #667dcf;
 }
 .btnCoordinates {
-  text-align: center;
-  width: 100%;
-  border: 0;
-  padding: $btnsPadding;
-  margin-top: 10px;
+  max-width: 300px;
   background-color: #3b4d8f;
-  border-radius: 3px;
-  cursor: pointer;
-  transition: 0.5s;
 }
 .btnCoordinates:hover {
   background-color: #12225d;
 }
+.btnCoordinatesDevs {
+  background-color: #3b4d8f;
+}
+.btnCoordinatesDevs:hover {
+  background-color: #12225d;
+}
 .btnSignup {
-  text-align: center;
-  width: 100%;
-  border: 0;
-  padding: $btnsPadding;
-  margin-top: 10px;
-  color: white;
+  max-width: 300px;
   background-color: rgb(16, 146, 96) !important;
-  border-radius: 3px;
-  cursor: pointer;
-  transition: 0.5s;
 }
 .btnSignup:hover {
+  background-color: rgb(11, 110, 72) !important;
+}
+.btnSignupDevs {
+  background-color: rgb(16, 146, 96) !important;
+}
+.btnSignupDevs:hover {
   background-color: rgb(11, 110, 72) !important;
 }
 .btnText {
   display: inline-block;
   vertical-align: middle;
   font-size: 16px;
+  color: #fff;
+  transition: 0.2s;
+}
+.btnTextSignUp {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 16px;
+  margin-top: 5px;
   color: #fff;
   transition: 0.2s;
 }
@@ -146,30 +170,42 @@ $btnsPadding: 5px !important;
 .facebookLoginBox:hover .btnText {
   text-shadow: 0.5px 0.5px 0.5px rgb(53, 53, 156);
 }
-.formBox strong {
-  font-size: 20px;
-  text-align: center;
-  display: block;
-  color: #333;
+.container form {
+  margin: 15px;
 }
-.formBox button {
-  margin-bottom: 5px !important;
+.inputMail,
+.container form input {
+  width: 100%;
+  height: 40px;
+  max-width: 300px;
+  margin: 15px 0;
+  border-radius: 5px;
+  // padding: 5px 10px;
+  color: #2f2f2f;
+  border-color: rgb(0, 0, 0);
+  border-width: 0px;
+  box-shadow: inset 0px 0px 5px 2px rgb(0, 0, 0);
 }
 
-.formBox form {
-  margin-top: 10px;
-}
-.formBox form input {
-  padding: 0 10px;
+.container form input {
+  width: 100%;
+  max-width: 300px;
+  margin: 5px 0;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: #2f2f2f;
+  border-color: rgb(0, 0, 0);
+  border-width: 0px;
+  box-shadow: inset 0px 0px 5px 2px rgb(0, 0, 0);
 }
 
 /* .input-block + .input-block will affect just the .input-block that
   has another .input-block before it */
-.formBox form .input-block + .input-block {
+.container form .input-block + .input-block {
   margin-top: 5px;
 }
 
-.formBox form .input-group {
+.container form .input-group {
   margin-top: 5px;
   display: grid;
   gap: 20px;
@@ -177,18 +213,18 @@ $btnsPadding: 5px !important;
 }
 
 /* next will affect all .input-block INSIDE a .input-group */
-.formBox form .input-group .input-block {
+.container form .input-group .input-block {
   margin-top: 0;
 }
 
-.formBox form .input-block label {
+.container form .input-block label {
   color: #acacac;
   font-size: 14px;
   font-weight: bold;
   display: block;
 }
 
-.formBox form .input-block input {
+.container form .input-block input {
   width: 100%;
   height: 25px;
   font-size: 14px;
@@ -197,7 +233,7 @@ $btnsPadding: 5px !important;
   border-bottom: 1px solid #eee;
 }
 
-.formBox form button[type="submit"] {
+.container form button[type='submit'] {
   width: 100%;
   border: 0;
   /* margin-top: 20px; */
@@ -210,6 +246,6 @@ $btnsPadding: 5px !important;
   transition: 0.5s;
 }
 
-.formBox form button[type="submit"]:hover {
+.container form button[type='submit']:hover {
   background-color: #4668e4;
 }

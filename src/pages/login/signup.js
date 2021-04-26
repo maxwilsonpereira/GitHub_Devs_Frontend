@@ -1,26 +1,31 @@
-import React, { useState, useEffect } from "react";
-import * as actionTypes from "../../store/actions/actionsIndex";
-import { connect } from "react-redux";
+import React, { useState, useEffect } from 'react';
+import * as actionTypes from '../../store/actions/actionsIndex';
+import { connect } from 'react-redux';
 
-import api from "../../../src/services/api";
+import api from '../../../src/services/api';
 
-import "../../components/DevForm/styles.scss";
-import Spinner from "react-bootstrap/Spinner";
-import classes from "./style.module.scss";
-import gitLogo from "../../assets/gitlogo.png";
+// npm i react-useanimations
+// https://useanimations.github.io/react-useanimations/?path=/story/animations--all
+import UseAnimations from 'react-useanimations';
+import github from 'react-useanimations/lib/github';
+import '../../components/DevForm/styles.scss';
+import Spinner from 'react-bootstrap/Spinner';
+import classes from './style.module.scss';
+import gitLogo from '../../assets/gitlogo.png';
 
 export function Signup(props) {
   // const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordConfirm, setPasswordConfirm] = useState("");
-  const [latitude, setLatitude] = useState("");
-  const [longitude, setLongitude] = useState("");
-  const [messageToUser, setMessageToUser] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordConfirm, setPasswordConfirm] = useState('');
+  const [latitude, setLatitude] = useState('');
+  const [longitude, setLongitude] = useState('');
+  const [messageToUser, setMessageToUser] = useState('');
+  const [spinner, setSpinner] = useState('');
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setMessageToUser("");
+      setMessageToUser('');
     }, 4000);
     return () => {
       clearTimeout(timer);
@@ -39,7 +44,7 @@ export function Signup(props) {
       (err) => {
         console.log(err);
         alert(
-          "You must allow Location Access on your browser (Address bar right corner)"
+          'You must allow Location Access on your browser (Address bar right corner)'
         );
       },
       {
@@ -56,6 +61,7 @@ export function Signup(props) {
       </div>
     );
     if (password != passwordConfirm) {
+      setSpinner('');
       setMessageToUser("Passwords don't match!");
     } else if (
       latitude < -90 ||
@@ -63,23 +69,25 @@ export function Signup(props) {
       longitude < -180 ||
       longitude > 180
     ) {
-      setMessageToUser("Wrong coordinates!");
+      setSpinner('');
+      setMessageToUser('Wrong coordinates!');
     } else {
       // POST to create a new user
       await api
-        .post("/users", {
+        .post('/users', {
           email,
           password,
           latitude,
           longitude,
         })
         .then((res) => {
+          setSpinner('');
           // MESSAGE FROM BACKEND:
           // "User created! Logging in..."
           setMessageToUser(res.data.message);
           // console.log(res.data.newUser);
           api
-            .post("/login", {
+            .post('/login', {
               email,
               password,
             })
@@ -89,55 +97,56 @@ export function Signup(props) {
             });
         })
         .catch((err) => {
+          setSpinner('');
           if (err.response) {
             // Client received an error response (5xx, 4xx):
             setMessageToUser(err.response.data.message);
             // MESSAGE COMING FROM BACKEND: Email already registered!
           } else if (err.request) {
             // Client never received a response, or request never left:
-            setMessageToUser("Connection unavailable at the moment!");
+            setMessageToUser('Connection unavailable at the moment!');
           } else {
             // Anything else:
-            setMessageToUser("Connection unavailable at the moment!");
+            setMessageToUser('Connection unavailable at the moment!');
           }
         });
     }
   }
   return (
     <div className={classes.container}>
-      <aside className={classes.formBox}>
-        <strong>Create Your Account</strong>
+      <div className={classes.content}>
+        <h1 className={classes.title}>Create Account</h1>
         <form onSubmit={signUpUserHandler}>
           <div className="input-block">
-            <label htmlFor="techs">Email</label>
             <input
               type="email"
               name="email"
               id="email"
+              placeholder="Email"
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-          <div className="input-group">
-            <div className="input-block">
-              <label htmlFor="techs">Password</label>
+          <div className={classes.grid}>
+            <div>
               <input
                 type="password"
                 id="password"
                 name="password"
+                placeholder="Password"
                 minlength="3"
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <div className="input-block">
-              <label htmlFor="techs">Password (confirm)</label>
+            <div>
               <input
                 type="password"
                 id="passwordConfirm"
                 name="passwordConfirm"
+                placeholder="Password Confirm"
                 minlength="3"
                 required
                 value={passwordConfirm}
@@ -145,47 +154,61 @@ export function Signup(props) {
               />
             </div>
           </div>
-          <div className="input-group">
-            <div className="input-block">
-              <label htmlFor="latitude">Latitude (optional)</label>
+          <div className={classes.maxWidth}>
+            <p className={classes.setCoordinates}>Coordinates (optional)</p>
+          </div>
+          <div className={classes.grid}>
+            <div>
               <input
                 type="number"
-                name="Latitude"
-                id="Latitude"
+                name="latitude"
+                id="latitude"
+                placeholder="Latitude"
                 value={latitude}
                 onChange={(e) => setLatitude(e.target.value)}
               />
             </div>
-            <div className="input-block">
-              <label htmlFor="longitude">Longitude (optional)</label>
+            <div>
               <input
                 type="number"
-                name="Longiture"
-                id="Longiture"
+                name="longiture"
+                id="longiture"
+                placeholder="Longiture"
                 value={longitude}
                 onChange={(e) => setLongitude(e.target.value)}
               />
             </div>
           </div>
 
-          <div className={classes.btnsGrid}>
+          <div className={classes.grid}>
             <button onClick={setCoordinates} className={classes.btnCoordinates}>
               {/* <img className={classes.facebookImg} src={facebookFavicon} /> */}
-              <h3 className={classes.btnText}>Set Coordinates (optional)</h3>
+              <h3 className={classes.btnText}>Set Coordinates</h3>
             </button>
             <button type="submit" className={classes.btnSignup}>
-              <h3 className={classes.btnText}>SIGN UP</h3>
+              <h3 className={classes.btnTextSignUp}>SIGN UP</h3>
             </button>
           </div>
         </form>
-        Have an account?{" "}
+        Have an account?{' '}
         <span className={classes.logSignClick} onClick={props.toogleComponent}>
           Log in
         </span>
         <h2 className="errorMessage">{messageToUser}</h2>
-      </aside>
-      <div className={classes.imgBox}>
-        <img className={classes.gitLogoSignupImg} src={gitLogo} alt="" />
+        <h2 className="errorMessage">{spinner}</h2>
+        <div className={classes.imgBox}>
+          {/* <img className={classes.gitLogoSignupImg} src={gitLogo} alt="" /> */}
+          <div className={classes.imgBox}>
+            {/* <img className={classes.gitLogoImg} src={gitLogo} alt="" /> */}
+            <UseAnimations
+              animation={github}
+              size={120}
+              autoplay={true}
+              loop={true}
+              wrapperStyle={{ margin: 'auto' }}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );

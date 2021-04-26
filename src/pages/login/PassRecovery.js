@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
-import api from "../../../src/services/api";
+import React, { useState, useEffect } from 'react';
+import api from '../../../src/services/api';
 
-import "./passRecovery.style.css";
-import Spinner from "react-bootstrap/Spinner";
-import classes from "./style.module.scss";
+import './passRecovery.style.css';
+import Spinner from 'react-bootstrap/Spinner';
+import classes from './style.module.scss';
 
 export default function EditDev(props) {
-  const [email, setEmail] = useState("");
-  const [messageToUser, setMessageToUser] = useState("");
+  const [email, setEmail] = useState('');
+  const [messageToUser, setMessageToUser] = useState('');
 
   // AVOID MESSAGE: Can't perform a React state update on an unmounted component:
   let isMounted = true;
@@ -21,7 +21,7 @@ export default function EditDev(props) {
   useEffect(() => {
     const timer = setTimeout(() => {
       if (isMounted) {
-        setMessageToUser("");
+        setMessageToUser('');
       }
     }, 4000);
     return () => {
@@ -31,8 +31,8 @@ export default function EditDev(props) {
 
   function recoverPasswordHandler(e) {
     e.preventDefault();
-    if (email === "") {
-      setMessageToUser("Please provide a registered email!");
+    if (email === '') {
+      setMessageToUser('Please provide a registered email!');
     } else {
       setMessageToUser(
         <div className={classes.spinerContainer}>
@@ -40,7 +40,7 @@ export default function EditDev(props) {
         </div>
       );
       api
-        .post("/emails", {
+        .post('/emails', {
           email,
         })
         .then((res) => {
@@ -55,10 +55,10 @@ export default function EditDev(props) {
             // MESSAGE COMING FROM BACKEND: Email not registered!
           } else if (err.request) {
             // Client never received a response, or request never left:
-            setMessageToUser("Connection unavailable at the moment!");
+            setMessageToUser('Connection unavailable at the moment!');
           } else {
             // Anything else:
-            setMessageToUser("Connection unavailable at the moment!");
+            setMessageToUser('Connection unavailable at the moment!');
           }
         });
     }
@@ -81,6 +81,7 @@ export default function EditDev(props) {
             </p>
             <div className="input-block">
               <input
+                className={classes.inputMail}
                 type="email"
                 name="email"
                 id="email"

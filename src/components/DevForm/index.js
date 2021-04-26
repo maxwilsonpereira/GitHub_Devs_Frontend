@@ -12,6 +12,7 @@ function DevForm({ refreshDevsHandlers }) {
   const [longitude, setLongitude] = useState("");
   const [about, setAbout] = useState("");
   const [messageToUser, setMessageToUser] = useState("");
+  const [spinner, setSpinner] = useState("");
 
   // AVOID MESSAGE: Can't perform a React state update on an unmounted component:
   let isMounted = true;
@@ -67,6 +68,7 @@ function DevForm({ refreshDevsHandlers }) {
       longitude < -180 ||
       longitude > 180
     ) {
+      setSpinner("");
       setMessageToUser("Wrong coordinates!");
     } else {
       const curIserId = localStorage.getItem("idUser");
@@ -81,6 +83,7 @@ function DevForm({ refreshDevsHandlers }) {
         })
         .then((res) => {
           if (isMounted) {
+            setSpinner("");
             setMessageToUser(res.data.message);
             // Could also be imported as (props)
             // an used as props.refreshDevsHandlers:
@@ -88,6 +91,7 @@ function DevForm({ refreshDevsHandlers }) {
           }
         })
         .catch((err) => {
+          setSpinner("");
           if (err.response) {
             if (isMounted) {
               setMessageToUser(err.response.data.message);
@@ -154,6 +158,7 @@ function DevForm({ refreshDevsHandlers }) {
             type="number"
             name="Latitude"
             id="Latitude"
+            placeholder="Optional"
             value={latitude}
             onChange={(e) => setLatitude(e.target.value)}
           />
@@ -164,21 +169,23 @@ function DevForm({ refreshDevsHandlers }) {
             type="number"
             name="Longiture"
             id="Longiture"
+            placeholder="Optional"
             value={longitude}
             onChange={(e) => setLongitude(e.target.value)}
           />
         </div>
       </div>
-      <div className={classes.btnsGridForm}>
-        <button onClick={setCoordinates} className={classes.btnCoordinates}>
+      <div className={classes.gridDevelopersForm}>
+        <button onClick={setCoordinates} className={classes.btnCoordinatesDevs}>
           {/* <img className={classes.facebookImg} src={facebookFavicon} /> */}
-          <h3 className={classes.btnText}>Set Coordinates (optional)</h3>
+          <h3 className={classes.btnText}>Set Coordinates</h3>
         </button>
-        <button type="submit" className={classes.btnSignup}>
-          <h3 className={classes.btnText}>Save</h3>
+        <button type="submit" className={classes.btnSignupDevs}>
+          <h3 className={classes.btnText}>SAVE</h3>
         </button>
       </div>
       <h2 className="errorMessage">{messageToUser}</h2>
+      <h2 className="errorMessage">{spinner}</h2>
     </form>
   );
 }

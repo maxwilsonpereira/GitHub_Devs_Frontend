@@ -139,10 +139,9 @@ aside form .input-block input {
 aside form button[type="submit"] {
   width: 100%;
   border: 0;
-  margin-top: 10px;
   background-color: #8097eb;
   border-radius: 2px;
-  padding: 10px 20px; /* 15px top-bottom, 20px right-left */
+  padding: 10px 20px;
   font-size: 16px;
   color: #fff;
   cursor: pointer;
