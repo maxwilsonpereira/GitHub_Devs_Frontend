@@ -1,9 +1,19 @@
-$btnsPadding: 5px !important;
+$btnsPadding: 16px !important;
 .container {
   padding: 30px 0;
   width: 100%;
   height: 100%;
   text-align: center;
+
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .content {
   max-width: 800px;
@@ -21,10 +31,13 @@ $btnsPadding: 5px !important;
   margin: auto;
   margin-top: 5px;
   align-content: center;
-  max-width: 300px;
+  max-width: 350px;
   grid-template-columns: 49% 49%;
   align-content: space-between;
   justify-content: space-between;
+  @media (max-width: 700px) {
+    max-width: 300px;
+  }
 }
 .gridDevelopersForm {
   display: grid;
@@ -47,12 +60,11 @@ $btnsPadding: 5px !important;
   font-size: 60px;
   margin: 30px 0;
   color: darkred;
-}
-/* MOBILE: */
-@media (max-width: 700px) {
-  .title {
-    margin: 0;
-    font-size: 38px;
+  @media (max-width: 700px) {
+    .title {
+      margin: 0;
+      font-size: 38px;
+    }
   }
 }
 .imgBox {
@@ -69,6 +81,8 @@ $btnsPadding: 5px !important;
   max-width: 80px;
 }
 .logSignClick {
+  font-size: 25px;
+  margin-left: 5px;
   cursor: pointer;
   font-weight: 600;
   color: #0095f6;
@@ -111,9 +125,12 @@ $btnsPadding: 5px !important;
   background-color: #12225d;
 }
 .btnLogin {
-  max-width: 300px;
+  max-width: 350px;
   font-weight: bold;
   background-color: #8097eb;
+  @media (max-width: 700px) {
+    max-width: 300px;
+  }
 }
 .btnLogin:hover {
   background-color: #667dcf;
@@ -176,7 +193,7 @@ $btnsPadding: 5px !important;
 .inputMail,
 .container form input {
   width: 100%;
-  height: 40px;
+  height: 50px;
   max-width: 300px;
   margin: 15px 0;
   border-radius: 5px;
@@ -186,10 +203,9 @@ $btnsPadding: 5px !important;
   border-width: 0px;
   box-shadow: inset 0px 0px 5px 2px rgb(0, 0, 0);
 }
-
 .container form input {
   width: 100%;
-  max-width: 300px;
+  max-width: 350px;
   margin: 5px 0;
   border-radius: 5px;
   padding: 5px 10px;
@@ -197,8 +213,18 @@ $btnsPadding: 5px !important;
   border-color: rgb(0, 0, 0);
   border-width: 0px;
   box-shadow: inset 0px 0px 5px 2px rgb(0, 0, 0);
+  @media (max-width: 700px) {
+    width: 100%;
+    max-width: 300px;
+  }
 }
-
+.errorMessage {
+  font-size: 20px !important;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  height: 40px;
+  color: darkred;
+}
 /* .input-block + .input-block will affect just the .input-block that
   has another .input-block before it */
 .container form .input-block + .input-block {
@@ -248,4 +274,14 @@ $btnsPadding: 5px !important;
 
 .container form button[type='submit']:hover {
   background-color: #4668e4;
+}
+.guestLogin {
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(13, 153, 0);
+  cursor: pointer;
+  transition: 0.2s;
+  &:hover {
+    color: rgb(10, 116, 0);
+  }
 }

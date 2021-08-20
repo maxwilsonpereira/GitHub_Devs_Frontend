@@ -11,7 +11,7 @@ import github from 'react-useanimations/lib/github';
 import '../../components/DevForm/styles.scss';
 import Spinner from 'react-bootstrap/Spinner';
 import classes from './style.module.scss';
-import gitLogo from '../../assets/gitlogo.png';
+// import gitLogo from '../../assets/gitlogo.png';
 
 export function Signup(props) {
   // const [name, setName] = useState("");

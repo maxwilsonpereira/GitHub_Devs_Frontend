@@ -13,8 +13,8 @@ import PassRecovery from './PassRecovery';
 // import facebookFavicon from "../../assets/facebook.png";
 
 export function Login(props) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('guest@account.git');
+  const [password, setPassword] = useState('1357910');
   const [passRecovery, setPassRecovery] = useState('');
   const [messageToUser, setMessageToUser] = useState('');
   const [spinner, setSpinner] = useState('');
@@ -141,8 +141,14 @@ export function Login(props) {
           >
             <i>Forgot your password?</i>
           </span>
-          <h2 className="errorMessage">{messageToUser}</h2>
-          <h2 className="errorMessage">{spinner}</h2>
+          <p onClick={loginHandler} className={classes.guestLogin}>
+            Enter with the GUEST account
+          </p>
+          <div>
+            <h2 className={classes.errorMessage}>
+              {spinner ? spinner : messageToUser}
+            </h2>
+          </div>
           <div className={classes.imgBox}>
             <img className={classes.gitLogoImg} src={gitLogo} alt="" />
           </div>
